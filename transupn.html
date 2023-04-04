@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<a href="koneksi.php">database</a>
+	<title>Aplikasi Bus Transportasi Kampus</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			font-family: helvetica;
+			text-align: left;
+			padding: 8px;
+		}
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+		.action {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+		}
+		.edit {
+			background-color: #4CAF50;
+			color: white;
+			padding: 8px 16px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+		}
+		.delete {
+			background-color: #f44336;
+			color: white;
+			padding: 8px 16px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+		}
+		.add {
+			background-color: #2196F3;
+			color: white;
+			padding: 8px 16px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		.form {
+			display: none;
+			flex-direction: row;
+			gap: 10px;
+			align-items: center;
+		}
+		.form input {
+			padding: 8px;
+			border: none;
+			border-radius: 5px;
+			margin-right: 10px;
+		}
+		.form button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 8px 16px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h2>BUS TRANS UPN </h2>
+	<button class="add">Tambah Data</button>
+	<table>
+		<thead>
+			<tr>
+				<th>Bus</th>
+				<th>Driver</th>
+				<th>Kondektur</th>
+				<th>Penjualan</th>
+				<th>trans_upn</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php while ($row = mysql_fetch_array($result)){ ?>
+			<tr>
+				<td><?php echo $row['bus']; ?></td>
+				<td><?php echo $row['driver']; ?></td>
+				<td><?php echo $row['kondektur']; ?></td>
+				<td><?php echo $row['penjualan']; ?></td>
+				<td><?php echo $row['trans_upn']; ?></td>
+				<td class="action">
+					<button class="edit">Edit</button>
+					<button class="delete">Delete</button>
+				</td>
+			</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+
+	</body>
+</html>
